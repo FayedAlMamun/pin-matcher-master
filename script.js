@@ -12,12 +12,14 @@ function setOrClearNumber(numberId)
 {
     if(numberId=="clear-all" && !isDisable()){
         document.getElementById("display-number").value="";
+        document.getElementById("try-left-text").style.display="block"
         notifySection();
     }
     else if(numberId=="backspace" && !isDisable()){
         let inputValue=document.getElementById("display-number").value;
         let newInputValue = inputValue.slice(0,-1);
         document.getElementById("display-number").value=newInputValue;
+        document.getElementById("try-left-text").style.display="block"
         notifySection();
     }
     else{
@@ -26,6 +28,7 @@ function setOrClearNumber(numberId)
             let numberValue=document.getElementById(numberId).innerText;
             let inputValue=document.getElementById("display-number").value;
             document.getElementById("display-number").value=inputValue+ numberValue; 
+            document.getElementById("try-left-text").style.display="block"
             notifySection();
         }
     }
