@@ -1,8 +1,13 @@
 function generatePin(){
-    document.getElementById("submit-btn").disabled=false;
-    document.getElementById("try-left").innerText=3;
     let pin=Math.floor(Math.random()*(9999-1000+1))+1000;
     document.getElementById("display-pin").value=pin;
+    document.getElementById("submit-btn").disabled=false;
+    document.getElementById("display-number").value="";
+    document.getElementById("try-left").innerText=3;
+    document.getElementById("try-left-text").style.display="block"
+    document.getElementById("pin-matched").style.display="none";
+    document.getElementById("wrong-pin").style.display="none";
+
 }
 function setOrClearNumber(numberId)
 {
