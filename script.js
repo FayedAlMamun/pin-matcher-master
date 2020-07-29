@@ -1,8 +1,8 @@
 function generatePin(){
+    document.getElementById("submit-btn").disabled=false;
+    document.getElementById("try-left").innerText=3;
     let pin=Math.floor(Math.random()*(9999-1000+1))+1000;
-    document.getElementById("display-pin").disabled=false;
     document.getElementById("display-pin").value=pin;
-    document.getElementById("display-pin").disabled=true;
 }
 function setOrClearNumber(numberId)
 {
@@ -25,22 +25,22 @@ function checkPinValidity(){
     let pin=document.getElementById("display-pin").value;
     let tryLeft=document.getElementById("try-left").innerText;
     let tryLeftValue=parseInt(tryLeft);
-    if(tryLeftValue>0)
-    {
-        if(inputValue==pin){
+    if(tryLeftValue>0 && pin!="")
+    {   if(inputValue==pin){
             document.getElementById("wrong-pin").style.display="none"
             document.getElementById("pin-matched").style.display="block"
             document.getElementById("try-left").innerText=3;
             document.getElementById("try-left-text").style.display="none"    
         }
         else{
+            
             document.getElementById("pin-matched").style.display="none";
             document.getElementById("wrong-pin").style.display="block"
             document.getElementById("try-left-text").style.display="block"
             document.getElementById("try-left").innerText=tryLeftValue-1;
         }
     }
-    else{
+    else if(tryLeftValue>0 && pin!=""){
         document.getElementById("submit-btn").disabled=true;
     }
 }
